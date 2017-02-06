@@ -121,6 +121,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
 
-    <gap:plugin name="cordova-plugin-admobpro" source="npm" spec="5.4.2" />
+    <gap:plugin name="cordova-plugin-admobpro" source="npm" spec="2.26.0" />
     
 </widget>
