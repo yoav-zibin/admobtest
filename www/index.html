@@ -1,0 +1,32 @@
+<html ng-app="MyApp" lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <textarea id="mytextarea" style="width: 100%; height: 100%;">
+  </textarea>
+  <script>
+    function log(str) {
+      document.getElementById("mytextarea").value += str + "\n";
+    }
+    log('test log');
+    function addEventListenerAndLog(type) {
+      document.addEventListener(type, function () {
+        log("phonegap event=" + type + JSON.stringify(Array.prototype.slice.call(arguments)));
+      });
+    }
+    function ondeviceready() {
+      log(window.AdMob ? "found AdMob" : "didn't find AdMob");
+      if (!window.AdMob) return;
+      var adPlugin = window.AdMob;
+      adPlugin.prepareInterstitial({adId: "/6062/yoavtestnative", autoShow: true});
+      addEventListenerAndLog('onAdFailLoad');
+      addEventListenerAndLog('onAdLoaded');
+      addEventListenerAndLog('onAdPresent');
+      addEventListenerAndLog('onAdLeaveApp');
+      addEventListenerAndLog('onAdDismiss');
+    }
+    document.addEventListener("deviceready", ondeviceready);
+  </script>
+</body>
+</html>
