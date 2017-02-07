@@ -5,6 +5,8 @@
 <body>
   <textarea id="mytextarea" style="width: 100%; height: 100%;">
   </textarea>
+  
+  <script type="text/javascript" src="cordova.js"></script>
   <script>
     function log(str) {
       document.getElementById("mytextarea").value += str + "\n";
@@ -28,5 +30,6 @@
     }
     document.addEventListener("deviceready", ondeviceready);
   </script>
+  
 </body>
 </html>
